@@ -1,0 +1,63 @@
+<h3>Comments(<%= @comments.count %>)</h3>
+<% @comments.each do |comment| %>
+  
+
+<% user=User.find_by_id(comment.user_id)%>
+
+<div id="comment_154906" class="comment">
+  <div class="avatar"><img width="64" height="64" src="http://gravatar.com/avatar/3d7ab4cdf48f42892420c7bed86cbf01.png?s=64&d=http%3A%2F%2Frailscasts.com%2Fimages%2Fguest.png" alt="Avatar"></div>
+  <div class="actions user_actions">
+
+        
+  </div>
+  <div class="main">
+    <div class="headline">
+  <span class="name">
+      <%= user.email%><span id="com-del"><% if user.id==session[:user_id] or @image.user_id==session[:user_id]%>
+      <%= link_to "Remove",:action=>"delete_comment",:id=>comment.id %><% end %> </span>
+  </span>
+    <a class="created_at" href="/episodes/304-omniauth-identity?view=comments#comment_154906">
+        
+</a></div>
+
+    <div class="comment_content">
+      <%= comment.comment_dec %>
+
+
+      <div class="actions">
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+<% end %>
+
+
+
+
+
+<h1>Add a comment</h1>
+
+<%= form_for :comment, :url=>{:action=>"add_comment",:id=>@id} do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment_dec,:rows=>8,:cols=>80 %>
+  </div>
+  
+  <div class="actions"><%= f.submit %></div>
+<% end %>

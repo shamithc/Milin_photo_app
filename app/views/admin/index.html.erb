@@ -1,0 +1,11 @@
+<div id="selector" >
+<center><h1>Admin</h1></center>
+
+<h3>Users List</h3>
+<% @users.each do |user|%>
+  <% if user.role_user.role.name!='admin'%>
+   <%= link_to user.email,:action=>"user",:id=>user.id%><br></br>
+  <% end %>
+<% end %>
+
+</div>

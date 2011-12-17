@@ -1,0 +1,10 @@
+<h3>User Info</h3>
+<span id="info"><b>Email : </b></span> <%= @user.email %><br></br>
+<span id="info"><b>Created at :</b></span><%= @user.created_at%><br></br>
+<span id="info"><b>No Of Login :</b></span><%= @user.count %><br></br>
+<% if  @user.last_login.present? %>
+</b><span id="info"><b>Last Login :</span><%= @user.last_login.to_formatted_s(:rfc822) %><br></br>
+<% end %>
+<%= link_to "Remove User",:action=>"remove_user",:id=>@user.id %><br></br>
+<%= link_to "Check my Albums", :action=>"my_album",:id=>@user.id%>
+

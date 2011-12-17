@@ -1,0 +1,36 @@
+<div id="selector" >
+<h3>Album List</h3>
+<% if @albums.present? %>
+<div class="content-img">
+<% @albums.each do |album| %>
+
+
+<div class="img">
+<div class="thumb">
+  <% data= album.paintings.first%>
+  <% if data.present? %>
+    <%= link_to (image_tag (data.image_url(:thumb).to_s),:onmouseover => data.image_url.to_s ),:action=>"image_list",:id=>album.id %>
+    <% else %>
+     <%# album.name %>
+     <%= link_to(image_tag "no_image.jpeg") %>
+    <% end %>
+
+
+ <div class="desc"><%= album.name%><span id="span-link"><%= link_to "Remove",:action=>"delete_album",:id=>album.id%> </span>  </div>
+ </div>
+</div>
+
+
+
+   <%#= album.name %>
+<% end %> 
+</div>
+<% else %>
+   <h4>No Albums saved yet </h4>
+ 
+<% end%>
+</div>  
+
+<div id="paginate">
+<%= will_paginate @albums %>
+</div>

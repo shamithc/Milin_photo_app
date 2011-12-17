@@ -1,0 +1,63 @@
+<div id="selector" >
+<h3>Add Album</h3>
+<div style="color:red;">
+<%= flash[:msg]%>
+</div>
+<%= form_for :album, :url=>{:action=>"save_album"} do |f| %>
+  <%#= f.error_messages %>
+  <%#= f.hidden_field :gallery_id %>
+   <% if @album.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @album.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
+
+<% if Album.where("user_id=?",session[:user_id]).present? %>
+<h3>Add image</h3>
+<%= form_for :painting, :url=>{:action=>"save"},:html => {:multipart => true} do |f| %>
+  <%#= f.error_messages %>
+  <%#= f.hidden_field :gallery_id %>
+   <% if @painting.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @painting.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <p>
+    <%= f.label :Title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.collection_select :album_id, Album.where("user_id=?",session[:user_id]), :id, :name   %>
+  </p>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <p><%#= f.submiti,:value=>"upload" %><input type="submit" value="upload" /></p>
+<% end %>
+
+<div>
+<% end %>
+
+

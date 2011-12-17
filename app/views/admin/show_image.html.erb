@@ -1,0 +1,53 @@
+<div id="full-image">
+
+<b>Title: </b><%=@image.title%><br></br>
+<%=image_tag @image.image_url.to_s,:width=>950%>
+
+<%#= render 'comments'%>
+
+
+
+<h3>Comments(<%= @comments.count %>)</h3>
+<% @comments.each do |comment| %>
+
+
+<% user=User.find_by_id(comment.user_id)%>
+<% adm=User.find(session[:user_id])%>
+<div id="comment_154906" class="comment">
+  <div class="avatar"><img width="64" height="64" src="http://gravatar.com/avatar/3d7ab4cdf48f42892420c7bed86cbf01.png?s=64&d=http%3A%2F%2Frailscasts.com%2Fimages%2Fguest.png" alt="Avatar"></div>
+  <div class="actions user_actions">
+
+
+  </div>
+  <div class="main">
+    <div class="headline">
+  <span class="name">
+      <%= user.email%><span id="com-del"><% if adm.role_user.role.name=="admin" %>
+      <%= link_to "Remove",:action=>"delete_comment",:id=>comment.id %><% end %> </span>
+  </span>
+    <a class="created_at" href="/episodes/304-omniauth-identity?view=comments#comment_154906">
+        
+</a></div>
+
+    <div class="comment_content">
+      <%= comment.comment_dec %>
+
+
+      <div class="actions">
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+<% end %>
+
+
+
+</div>
+~                                                                                                                                                      
+~              

@@ -1,0 +1,138 @@
+.search-image-box {
+    display: inline-block;
+    float: left;
+    height: 200px;
+    line-height: 1px;
+    padding: 0 7px 20px 0;
+    width: 128px;
+}
+
+
+
+.clr {
+    border: medium none;
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.content_right_block {
+    height: 100%;
+    margin: 0 15px 0 0;
+    overflow: hidden;
+    padding: 16px 0 50px 2px;
+    width: auto !important;
+}
+
+#container >.content-img{
+    max-width: 1100px;
+}
+
+.img
+{
+  margin: 58px;
+  height: auto;
+  width: auto;
+  float: none;
+  text-align: center;
+}   
+.img img
+{
+  display: inline;
+  margin: 3px;
+  border: 1px solid #ffffff;
+}
+.img a:hover img {border: 1px solid #0000ff;}
+
+.desc
+{
+  text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 2px;
+}
+
+.thumb {
+    background-color: #EEEEEE;
+    float: left;
+    height: 176px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 209px;
+}
+
+
+.comment {
+    margin: 20px 0;
+    position: relative;
+}
+
+.comment .avatar {
+    border: 1px solid #CCCCCC;
+    color: #FFFFFF;
+    float: left;
+    padding: 4px;
+}
+
+.comment .main {
+    margin-left: 83px;
+}
+
+.comment .headline {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(center top , #EEEEEE, #CCCCCC) repeat scroll 0 0 transparent;
+    border-color: #BBBBBB #BBBBBB -moz-use-text-color;
+    border-style: solid solid none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-width: 1px 1px medium;
+    font-size: 12px;
+    padding: 5px 14px;
+    max-width:700px;
+}
+
+.comment_content {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: -moz-use-text-color #CCCCCC #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 1px 15px;
+    max-width:698px;
+}
+
+#full-image{
+    padding: 50px;
+}
+
+#paginate{
+    font-size: 15px;
+    padding: 73px;
+    float: right;
+}
+
+#selector {
+    font-size: 15px;
+    padding-top: 50px;
+}
+
+#span-link{
+ font-size: 12px;
+ padding-left: 65px;
+}

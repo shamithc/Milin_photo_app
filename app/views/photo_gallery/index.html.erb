@@ -1,0 +1,21 @@
+
+
+<div class="content-img">
+<% @data.each do |data|%>
+<div class="img">
+<div class="thumb">
+ <%= link_to (image_tag (data.image_url(:thumb).to_s),:onmouseover => data.image_url.to_s ),:action=>"show_image",:id=>data.id %>
+ <div class="desc"><%= data.title%></div>
+ </div>
+</div>
+
+    <%#= image_tag data.image_url(:thumb).to_s, :onmouseover => data.image_url.to_s %>
+  
+<% end%>
+
+<div>
+<% if @data.count> 6%>
+<div id="paginate">
+<%= will_paginate @data %>
+</div>
+<% end %>

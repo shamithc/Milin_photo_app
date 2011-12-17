@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Volunteer CMS</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= params[:controller] %>">
+<div id="heading">
+ <h2>Volunteer CMS</h2>
+</div>
+  <div id="container">
+<% if session[:user_id].present? and User.find_by_id(session[:user_id]).role_user.role.name!="admin" %>
+<div id="menu">
+<ul>
+  <li><h2><%= link_to "Home", :controller=>"photo_gallery",:action=>"index" %></h2></li>
+</ul>
+<ul>
+  <li><h2><%= link_to "Upload", :controller=>"photo_gallery",:action=>"upload" %></h2></li>
+</ul>
+<ul>
+  <li><h2><%= link_to "MyAlbums", :controller=>"photo_gallery",:action=>"my_album" %></h2></li>
+</ul>
+<br></br>
+</div>
+
+<br></br>
+<% end %>
+<% if session[:user_id].present? %>
+<div id="signout"><%= link_to "Sign Out",:controller=>"sessions",:action=>"destroy"%> </div>
+<% end %>
+
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
+</html>
